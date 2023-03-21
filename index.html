@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio do Desenvolvedor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+<div id="background">
+  <script>
+  // Criação do canvas e do renderer
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+const renderer = new THREE.WebGLRenderer({ canvas });
+
+// Criação da cena e da câmera
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+
+// Função para verificar se o usuário está em um dispositivo móvel
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Criação das partículas
+const particleGeometry = new THREE.BufferGeometry();
+const particleCount = isMobile() ? 1000 : 5000; // Reduzido para 1000 em dispositivos móveis
+const positions = new Float32Array(particleCount * 3);
+
+for (let i = 0; i < particleCount * 3; i++) {
+  positions[i] = (Math.random() - 0.5) * 25;
+}
+
+particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+const colorsback = [
+  new THREE.Color(0xff22ff), // Roxo
+  new THREE.Color(0x00ff00), // Verde
+  new THREE.Color(0xff0000), // Vermelho
+  new THREE.Color(0x0000ff), // Azul
+];
+
+let currentColorIndex = 0;
+let nextColorIndex = 1;
+
+const particleMaterial = new THREE.PointsMaterial({
+  color: colorsback[currentColorIndex],
+  size: 0.03,
+  transparent: true,
+  opacity: 0.3,
+  vertexColors: true,
+});
+
+function animateColor() {
+  const colorTween = new TWEEN.Tween(colorsback[currentColorIndex])
+    .to(colorsback[nextColorIndex], 5000) // Ajuste a duração da animação (3000 ms = 3 segundos)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .onUpdate((color) => {
+      particleMaterial.color.copy(color);
+    })
+    .onComplete(() => {
+      currentColorIndex = (currentColorIndex + 1) % colorsback.length;
+      nextColorIndex = (nextColorIndex + 1) % colorsback.length;
+      animateColor();
+    });
+
+  colorTween.start();
+}
+
+animateColor();
+
+const colors = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount * 3; i++) {
+  colors[i] = 1;
+}
+particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+const particles = new THREE.Points(particleGeometry, particleMaterial);
+scene.add(particles);
+
+// Adicionar interatividade com o raycaster
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+document.addEventListener('mousemove', (event) => {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+
+  const intersects = raycaster.intersectObject(particles);
+
+  if (intersects.length > 0) {
+    const index = intersects[0].index;
+    const i3 = index * 3;
+    particleGeometry.attributes.color.array[i3] = Math.random();
+    particleGeometry.attributes.color.array[i3 + 1] = Math.random();
+    particleGeometry.attributes.color.array[i3 + 2] = Math.random();
+    particleGeometry.attributes.color.needsUpdate = true;
+  }
+});
+
+// Função de animação
+function animate() {
+  requestAnimationFrame(animate);
+
+  TWEEN.update();
+
+  // Atualização das posições das partículas
+  const time = performance.now() * 0.0003;
+  for (let i = 0; i < particleCount; i++) {
+    const i3 = i * 3;
+    const x = particleGeometry.attributes.position.array[i3];
+    particleGeometry.attributes.position.array[i3 + 1] = Math.sin(time + x);
+  }
+  particleGeometry.attributes.position.needsUpdate = true;
+
+  // Renderização do frame
+  renderer.render(scene, camera);
+
+  // Ajuste do tamanho do canvas
+  if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+}
+
+animate();
+
+
+</script>
+
+</div>
+<header>
+  <nav>
+    <button class="hamburger">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#educacao">Escolaridade</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+    <section id="sobre">
+      <h1>Peterson Alves</h1>
+      <h2>Desenvolvedor</h2>
+      <p>Desenvolvedor web dedicado e orientado a resultados com habilidades para trabalhar em equipe e individualmente. Experiência em PHP, Java, JavaScript, HTML, CSS, frameworks e testes unitários. Focado em aprender e se adaptar rapidamente a novas tecnologias.</p>
+    </section>
+    <section id="experiencia" class="hidden">
+      <h2>Experiência</h2>
+      <ul>
+        <li>
+          <h3>NTL Nova Tecnologia Ltda.</h3>
+          <p class="job-title">Desenvolvedor Pleno</p>
+          <p class="dates">Dezembro de 2020 - Presente</p>
+          <p>Desenvolvimento e manutenção de sistemas em PHP e Java para a CBMERJ, sempre utilizando Testes. Tecnologias utilizadas: PHP, CodeIgniter, jQuery, Bootstrap, Java, Struts 2, JSP, JEE.</p>
+        </li>
+        <li>
+          <h3>STUDIO VS | Sistemas Exclusivos para a Gestão de Shopping Centers</h3>
+          <p class="job-title">Desenvolvedor PHP</p>
+          <p class="dates">Maio de 2020 - Agosto de 2020</p>
+          <p>Desenvolvimento de sistemas para shoppings utilizando PHP, Ajax e JavaScript.</p>
+        </li>
+        <li>
+          <h3>Premier IT Global Services</h3>
+          <p class="job-title">Analista de Sistemas Pleno</p>
+          <p class="dates">Setembro de 2018 - Março de 2020</p>
+          <p>Integração de sistemas legados Oracle utilizando WebService SOAP (com PHP) em um barramento SOA e aquisição de dados de micro serviços (API Restful) do Swagger.</p>
+        </li>
+        <li>
+          <h3>SIX Creative</h3>
+          <p class="job-title">Desenvolvedor PHP</p>
+          <p class="dates">Fevereiro de 2017 - Setembro de 2018</p>
+          <p>Desenvolvimento e manutenção de sistemas utilizando PHP Laravel 5.*, Opencart, Wordpress, MySQL, RESTful API, Ajax, jQuery, HTML, CSS e Git. Participação em projetos como o aplicativo das Lojas Caçula e o Sistema de Biblioteca Compartilhada da empresa Plural.</p>
+        </li>
+        <li>
+          <h3>TI–Seg.Com Tecnologia da Informação Soluções em TI</h3>
+          <p class="job-title">Desenvolvedor PHP</p>
+          <p class="dates">Setembro de 2014 - Fevereiro de 2017</p>
+          <p>Desenvolvimento e suporte de sistemas utilizando PHP, PostgreSQL, JavaScript, HTML5, CSS3. Administração do banco de dados da empresa em um servidor web (Locaweb).</p>
+        </li>
+      </ul>
+    </section>
+    <section id="educacao" class="hidden">
+      <h2>Escolaridade</h2>
+      <ul>
+        <li>
+          <h3>Universidade Estácio de Sá - Rio de Janeiro</h3>
+          <p class="job-title">Bacharel em Sistemas de Informação</p>
+          <p class="dates">2016 - 2021</p>
+        </li>
+        <li>
+          <h3>SENAC Rio</h3>
+          <p class="job-title">Técnico em Informática</p>
+          <p class="dates">2013 - 2014</p>
+        </li>
+      </ul>
+    </section>
+    <section id="habilidades" class="hidden">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>PHP, Java, JavaScript</li>
+        <li>HTML, CSS, Bootstrap</li>
+        <li>CodeIgniter, Laravel, Struts 2</li>
+        <li>jQuery, Flutter, Dart</li>
+        <li>TDD e BDD, Git, SQL</li>
+        <li>WordPress, OpenCart</li>
+        <li>Node.js, Docker, Python</li>
+        <li>Aprendizado rápido em novas tecnologias</li>
+      </ul>
+    </section>
+    <section id="contato" class="hidden">
+      <h2>Contato</h2>
+      <p><strong>Email</strong>: <a href="mailto:peterson.alves89@gmail.com">peterson.alves89@gmail.com</a></p>
+      <p><strong>Telefone</strong>: <a href="https://wa.me/5521966717777" target="_blank">+55 21 96671-7777</a></p>
+      <p><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/peter89" target="_blank">https://www.linkedin.com/in/peter89</a></p>
+      <p><strong>GitHub</strong>: <a href="https://github.com/sebet89" target="_blank">https://github.com/sebet89</a></p>
+      </section>
+
+  </main>
+  <script>
+  let navLinks = document.querySelectorAll("nav a");
+  const sections = document.querySelectorAll("section");
+
+  // Esconde todas as seções ao carregar a página, exceto a primeira
+  window.addEventListener("DOMContentLoaded", () => {
+    sections.forEach((section, index) => {
+      if (index > 0) {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+      }
+    });
+  });
+
+  navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
+
+    // Esconde todas as seções
+    sections.forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Mostra a seção desejada
+    targetSection.style.display = "block";
+  });
+});
+
+  const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+  navUl.classList.toggle('nav-active');
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
+
+    // Esconde todas as seções com a animação 'fade-out'
+    sections.forEach((section) => {
+      if (section !== targetSection) {
+        section.classList.remove("fade-in");
+        section.classList.add("fade-out");
+        setTimeout(() => {
+          section.classList.add("hidden");
+        }, 1000);
+      }
+    });
+
+    // Mostra a seção desejada com a animação 'fade-in'
+    if (targetSection.classList.contains("hidden")) {
+      targetSection.classList.remove("hidden");
+      targetSection.classList.remove("fade-out");
+      targetSection.classList.add("fade-in");
+    }
+  });
+});
+
+
+document.addEventListener("click", (event) => {
+  if (!hamburger.contains(event.target)) {
+    if (navUl.classList.contains("nav-active")) {
+      navUl.classList.remove("nav-active");
+    }
+  }
+});
+</script>
+  
+</body>
+</html>

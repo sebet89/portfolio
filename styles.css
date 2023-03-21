@@ -1,0 +1,198 @@
+html{
+	overflow-y:hidden;
+}
+
+body {
+  font-family: 'Courier', monospace;
+  line-height: 1.6;
+  color: #fff;
+  margin: 0;
+}
+
+#background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: auto; /* Adicione esta linha */
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #cccccc;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  z-index: 2; /* Adicione esta linha */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1;
+  padding-top: 4em;
+  font-size: 14px;
+}
+
+.job-title {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  color: #ccc;
+}
+
+li p {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.dates {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  color: #ccc;
+}
+
+section {
+  padding: 2em;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+p, ul {
+  font-size: 1.1em;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    color:#fff;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .nav-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+  visibility: visible;
+  position: static;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+  visibility: visible;
+  position: static;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
