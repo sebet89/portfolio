@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js"></script>
-  <script src="main.js"></script>
 </head>
 <body>
 <div id="background">
@@ -146,6 +145,7 @@ animate();
       <li><a href="#educacao">Escolaridade</a></li>
       <li><a href="#habilidades">Habilidades</a></li>
       <li><a href="#contato">Contato</a></li>
+      <li><a href="#projetos">Projetos</a></li>
     </ul>
   </nav>
 </header>
@@ -161,7 +161,7 @@ animate();
         <li>
           <h3>NTL Nova Tecnologia Ltda.</h3>
           <p class="job-title">Desenvolvedor Pleno</p>
-          <p class="dates">Dezembro de 2020 - Presente</p>
+          <p class="dates">Agosto de 2020 - Presente</p>
           <p>Desenvolvimento e manutenção de sistemas em PHP e Java para a CBMERJ, sempre utilizando Testes. Tecnologias utilizadas: PHP, CodeIgniter, jQuery, Bootstrap, Java, Struts 2, JSP, JEE.</p>
         </li>
         <li>
@@ -224,9 +224,43 @@ animate();
       <p><strong>Telefone</strong>: <a href="https://wa.me/5521966717777" target="_blank">+55 21 96671-7777</a></p>
       <p><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/peter89" target="_blank">https://www.linkedin.com/in/peter89</a></p>
       <p><strong>GitHub</strong>: <a href="https://github.com/sebet89" target="_blank">https://github.com/sebet89</a></p>
-      </section>
+    </section>
+    <section id="projetos" class="hidden">
+      <h2>Projetos</h2>
+      <div class="carousel">
+        <button class="carousel-prev">&#10094;</button>
+        <div class="carousel-content">
+          <div class="carousel-item">
+            <img src="./images/proj1.jpg" alt="Projeto SESMT" />
+            <div>
+              <h3 style="text-align: center;">Site e ERP da empresa SESMT-RIO</h3>
+              <p>Durante 2 anos e meio, trabalhei em um projeto de grande relevância para a Segurança do Trabalho, atuando na atualização, manutenção e criação de novas ferramentas em um site e ERP. O site conta com recursos que vão desde a criação de logins até o download de documentos, enquanto o ERP apresenta diversas áreas, como financeiro, cadastros, área médica e especializada em Segurança do Trabalho. Tive o prazer de contribuir para o desenvolvimento e aprimoramento desse sistema, sempre buscando a excelência e a máxima eficiência na gestão da segurança nas empresas. Acredito que minha experiência e dedicação nesse projeto me ajudou muito para o meu crescimento profissional.</p>
+              <p style="text-align: center;"><a href="http://sesmt-rio.com" target="_blank">http://sesmt-rio.com</a> | 2014 - 2017</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./images/siscom.jpg" alt="Projeto SISCOM" />
+            <div>
+              <h3>SISCOM - Sistema de Controle de Materiais</h3>
+              <p>Tive a oportunidade de trabalhar em um projeto de grande importância para o CBMERJ, onde desenvolvi um sistema de Controle de Materiais que permitiu aos setores da instituição solicitarem e atualizarem os estoques necessários para suas atividades. O sistema conta com diversos recursos, incluindo relatórios detalhados de solicitações e consolidações de materiais e estoques, garantindo assim uma gestão eficiente e precisa desses recursos. Este sistema foi implementado com sucesso e é utilizado diariamente pelos Bombeiros do Estado do Rio de Janeiro, contribuindo para um melhor desempenho das atividades e uma gestão mais eficiente dos materiais. Neste sistema foi utilizado PHP com Codeigniter e Jquery</p>
+              <p style="text-align: center;"><a href="http://siscom.cbmerj.rj.gov.br/" target="_blank">http://siscom.cbmerj.rj.gov.br</a> | 2020 - 2023</p>
+            </div>
+          </div>
+          <!-- Adicione mais itens de carrossel conforme necessário -->
+        </div>
+        <button class="carousel-next">&#10095;</button>
+      </div>
+    </section>
+
 
   </main>
+  <div class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <img src="" alt="Modal image" />
+    </div>
+  </div>
+
   <script>
   let navLinks = document.querySelectorAll("nav a");
   const sections = document.querySelectorAll("section");
@@ -299,7 +333,10 @@ document.addEventListener("click", (event) => {
     }
   }
 });
+
+
 </script>
+<script src="main.js"></script>
   
 </body>
 </html>

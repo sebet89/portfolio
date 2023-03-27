@@ -1,5 +1,5 @@
 html{
-	overflow-y:hidden;
+  overflow-y:hidden;
 }
 
 body {
@@ -196,3 +196,132 @@ p, ul {
     transform: translateX(0);
   }
 }
+
+.carousel {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 70%;
+  height: 70%;
+}
+
+.carousel-item {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item.active {
+  display: flex;
+}
+
+.carousel-item img {
+  flex-shrink: 0;
+  margin-right: 3rem;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  margin: 0 10px; /* Adicione esta linha */
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    width: 90%;
+    height: auto;
+  }
+  
+  .carousel-item img {
+    width: 200px;
+    height: 200px;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-item {
+    flex-direction: column; /* Coloca o texto abaixo da imagem */
+    align-items: center; /* Centraliza o conteúdo */
+  }
+  
+  .carousel-item img {
+    width: 150px;
+    height: 150px;
+    margin-right: 0;
+    margin-bottom: 0.5rem; /* Adiciona uma margem abaixo da imagem */
+  }
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
