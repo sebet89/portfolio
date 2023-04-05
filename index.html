@@ -140,73 +140,77 @@ animate();
   <nav>
     <button class="hamburger">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#educacao">Escolaridade</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#contato">Contato</a></li>
-      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#sobre" data-lang-key="nav-about"></a></li>
+      <li><a href="#experiencia" data-lang-key="nav-experience"></a></li>
+      <li><a href="#educacao" data-lang-key="nav-education"></a></li>
+      <li><a href="#habilidades" data-lang-key="nav-skills"></a></li>
+      <li><a href="#contato" data-lang-key="nav-contact"></a></li>
+      <li><a href="#projetos" data-lang-key="nav-projects"></a></li>
     </ul>
+    <select class="language-selector form-select" id="language-selector">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+    </select>
   </nav>
 </header>
 <main>
     <section id="sobre">
-      <h1>Peterson Alves</h1>
-      <h2>Desenvolvedor</h2>
-      <p>Desenvolvedor web dedicado e orientado a resultados com habilidades para trabalhar em equipe e individualmente. Experiência em PHP, Java, JavaScript, HTML, CSS, frameworks e testes unitários. Focado em aprender e se adaptar rapidamente a novas tecnologias.</p>
+        <h1 data-lang-key="sobre-title"></h1>
+        <h2 data-lang-key="sobre-subtitle"></h2>
+        <p data-lang-key="sobre-description"></p>
     </section>
     <section id="experiencia" class="hidden">
-      <h2>Experiência</h2>
-      <ul>
-        <li>
-          <h3>NTL Nova Tecnologia Ltda.</h3>
-          <p class="job-title">Desenvolvedor Pleno</p>
-          <p class="dates">Agosto de 2020 - Presente</p>
-          <p>Desenvolvimento e manutenção de sistemas em PHP e Java para a CBMERJ, sempre utilizando Testes. Tecnologias utilizadas: PHP, CodeIgniter, jQuery, Bootstrap, Java, Struts 2, JSP, JEE.</p>
-        </li>
-        <li>
-          <h3>STUDIO VS | Sistemas Exclusivos para a Gestão de Shopping Centers</h3>
-          <p class="job-title">Desenvolvedor PHP</p>
-          <p class="dates">Maio de 2020 - Agosto de 2020</p>
-          <p>Desenvolvimento de sistemas para shoppings utilizando PHP, Ajax e JavaScript.</p>
-        </li>
-        <li>
-          <h3>Premier IT Global Services</h3>
-          <p class="job-title">Analista de Sistemas Pleno</p>
-          <p class="dates">Setembro de 2018 - Março de 2020</p>
-          <p>Integração de sistemas legados Oracle utilizando WebService SOAP (com PHP) em um barramento SOA e aquisição de dados de micro serviços (API Restful) do Swagger.</p>
-        </li>
-        <li>
-          <h3>SIX Creative</h3>
-          <p class="job-title">Desenvolvedor PHP</p>
-          <p class="dates">Fevereiro de 2017 - Setembro de 2018</p>
-          <p>Desenvolvimento e manutenção de sistemas utilizando PHP Laravel 5.*, Opencart, Wordpress, MySQL, RESTful API, Ajax, jQuery, HTML, CSS e Git. Participação em projetos como o aplicativo das Lojas Caçula e o Sistema de Biblioteca Compartilhada da empresa Plural.</p>
-        </li>
-        <li>
-          <h3>TI–Seg.Com Tecnologia da Informação Soluções em TI</h3>
-          <p class="job-title">Desenvolvedor PHP</p>
-          <p class="dates">Setembro de 2014 - Fevereiro de 2017</p>
-          <p>Desenvolvimento e suporte de sistemas utilizando PHP, PostgreSQL, JavaScript, HTML5, CSS3. Administração do banco de dados da empresa em um servidor web (Locaweb).</p>
-        </li>
-      </ul>
+      <h2 data-lang-key="experience-title"></h2>
+        <ul>
+            <li>
+                <h3 data-lang-key="ntl-title"></h3>
+                <p data-lang-key="ntl-job-title"></p>
+                <p data-lang-key="ntl-dates"></p>
+                <p data-lang-key="ntl-description"></p>
+            </li>
+            <li>
+                <h3 data-lang-key="vs-title"></h3>
+                <p data-lang-key="vs-job-title"></p>
+                <p data-lang-key="vs-dates"></p>
+                <p data-lang-key="vs-description"></p>
+            </li>
+            <li>
+                <h3 data-lang-key="premier-title"></h3>
+                <p data-lang-key="premier-job-title"></p>
+                <p data-lang-key="premier-dates"></p>
+                <p data-lang-key="premier-description"></p>
+            </li>
+            <li>
+              <h3 data-lang-key="six-title"></h3>
+              <p data-lang-key="six-job-title"></p>
+              <p data-lang-key="six-dates"></p>
+              <p data-lang-key="six-description"></p>
+            </li>
+            <li>
+                <h3 data-lang-key="ti-title"></h3>
+                <p data-lang-key="ti-job-title"></p>
+                <p data-lang-key="ti-dates"></p>
+                <p data-lang-key="ti-description"></p>
+            </li>
+        </ul>
     </section>
     <section id="educacao" class="hidden">
-      <h2>Escolaridade</h2>
+      <h2 data-lang-key="education-title"></h2>
       <ul>
-        <li>
-          <h3>Universidade Estácio de Sá - Rio de Janeiro</h3>
-          <p class="job-title">Bacharel em Sistemas de Informação</p>
-          <p class="dates">2016 - 2021</p>
-        </li>
-        <li>
-          <h3>SENAC Rio</h3>
-          <p class="job-title">Técnico em Informática</p>
-          <p class="dates">2013 - 2014</p>
-        </li>
+          <li>
+              <h3 data-lang-key="universidade-title"></h3>
+              <p data-lang-key="universidade-job-title"></p>
+              <p data-lang-key="universidade-dates"></p>
+          </li>
+          <li>
+              <h3 data-lang-key="senac-rio-title"></h3>
+              <p data-lang-key="senac-rio-job-title"></p>
+              <p data-lang-key="senac-rio-dates"></p>
+          </li>
       </ul>
     </section>
     <section id="habilidades" class="hidden">
-      <h2>Habilidades</h2>
+      <h2 data-lang-key="skills-title"></h2>
       <ul>
         <li>PHP, Java, JavaScript</li>
         <li>HTML, CSS, Bootstrap</li>
@@ -215,42 +219,56 @@ animate();
         <li>TDD e BDD, Git, SQL</li>
         <li>WordPress, OpenCart</li>
         <li>Node.js, Docker, Python</li>
-        <li>Aprendizado rápido em novas tecnologias</li>
+        <li data-lang-key="skills-list-away"></li>
       </ul>
     </section>
     <section id="contato" class="hidden">
-      <h2>Contato</h2>
-      <p><strong>Email</strong>: <a href="mailto:peterson.alves89@gmail.com">peterson.alves89@gmail.com</a></p>
-      <p><strong>Telefone</strong>: <a href="https://wa.me/5521966717777" target="_blank">+55 21 96671-7777</a></p>
-      <p><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/peter89" target="_blank">https://www.linkedin.com/in/peter89</a></p>
-      <p><strong>GitHub</strong>: <a href="https://github.com/sebet89" target="_blank">https://github.com/sebet89</a></p>
+      <h2 data-lang-key="contact-title"></h2>
+      <ul>
+          <li>
+            <span data-lang-key="contact-email">:</span>
+            <a href="mailto:peterson.alves89@gmail.com" data-lang-key="contact-email-link"></a>
+          </li>
+          <li>
+          <span data-lang-key="contact-phone"></span>
+          <a href="tel:+5521966717777" data-lang-key="contact-phone-link"></a>
+          </li>
+          <li>
+          <span data-lang-key="contact-linkedin"></span>
+          <a href="https://www.linkedin.com/in/peter89" data-lang-key="contact-linkedin-link"></a>
+          </li>
+          <li>
+          <span data-lang-key="contact-github"></span>
+          <a href="https://github.com/sebet89" data-lang-key="contact-github-link"></a>
+          </li>
+      </ul>
     </section>
     <section id="projetos" class="hidden">
-      <h2>Projetos</h2>
+      <h2 data-lang-key="projects-title"></h2>
       <div class="carousel">
         <button class="carousel-prev">&#10094;</button>
         <div class="carousel-content">
           <div class="carousel-item">
             <img src="./images/sesmet_desfog.jpg" alt="Projeto SESMT" />
             <div>
-              <h3 style="text-align: center;">Site e ERP da empresa SESMT-RIO</h3>
-              <p>Durante 2 anos e meio, trabalhei em um projeto de grande relevância para a Segurança do Trabalho, atuando na atualização, manutenção e criação de novas ferramentas em um site e ERP. O site conta com recursos que vão desde a criação de logins até o download de documentos, enquanto o ERP apresenta diversas áreas, como financeiro, cadastros, área médica e especializada em Segurança do Trabalho. Tive o prazer de contribuir para o desenvolvimento e aprimoramento desse sistema, sempre buscando a excelência e a máxima eficiência na gestão da segurança nas empresas. Acredito que minha experiência e dedicação nesse projeto me ajudou muito para o meu crescimento profissional.</p>
-              <p style="text-align: center;"><a href="http://sesmt-rio.com" target="_blank">http://sesmt-rio.com</a> | 2014 - 2017</p>
+              <h3 style="text-align: center;" data-lang-key="sesmt-title"></h3>
+              <p data-lang-key="sesmt-description"></p>
+              <p style="text-align: center;"><a href="http://sesmt-rio.com" target="_blank" data-lang-key="sesmt-link"></a> | 2014 - 2017</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="./images/siscom_desfog.jpg" alt="Projeto SISCOM" />
             <div>
-              <h3 style="text-align: center;">SISCOM - Sistema de Controle de Materiais</h3>
-              <p>Tive a oportunidade de trabalhar em um projeto de grande importância para o CBMERJ, onde desenvolvi um sistema de Controle de Materiais que permitiu aos setores da instituição solicitarem e atualizarem os estoques necessários para suas atividades. O sistema conta com diversos recursos, incluindo relatórios detalhados de solicitações e consolidações de materiais e estoques, garantindo assim uma gestão eficiente e precisa desses recursos. Este sistema foi implementado com sucesso e é utilizado diariamente pelos Bombeiros do Estado do Rio de Janeiro, contribuindo para um melhor desempenho das atividades e uma gestão mais eficiente dos materiais. Neste sistema foi utilizado PHP com Codeigniter e Jquery</p>
-              <p style="text-align: center;"><a href="http://siscom.cbmerj.rj.gov.br/" target="_blank">http://siscom.cbmerj.rj.gov.br</a> | 2020 - 2023</p>
+              <h3 style="text-align: center;" data-lang-key="siscom-title"></h3>
+              <p data-lang-key="siscom-description"></p>
+              <p style="text-align: center;"><a href="http://siscom.cbmerj.rj.gov.br/" target="_blank" data-lang-key="siscom-link"></a> | 2020 - 2023</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="./images/loading.gif" alt="Construção" />
             <div>
-              <h3 style="text-align: center;">EM CONSTRUÇÃO</h3>
-              <p>Esta parte ainda esta em construção, em breve colocarei aqui todos os Projetos em que eu trabalhei</p>
+              <h3 style="text-align: center;" data-lang-key="construction-title"></h3>
+              <p data-lang-key="construction-description"></p>
               <p style="text-align: center;">2014 - ????</p>
             </div>
           </div>
@@ -345,6 +363,7 @@ document.addEventListener("click", (event) => {
 
 </script>
 <script src="main.js"></script>
+<script src="lang.js"></script>
   
 </body>
 </html>

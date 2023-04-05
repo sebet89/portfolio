@@ -325,3 +325,33 @@ p, ul {
   cursor: pointer;
 }
 
+/* Posicione o seletor de idiomas no canto superior direito */
+.language-selector {
+  top: 10px;
+    right: 10px;
+    width: 80px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0); /* Opacidade atualizada para 0 */
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Aparência do seletor de idiomas quando em foco */
+.language-selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+}
+
+/* Aparência das opções do seletor de idiomas */
+.language-selector option {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0); /* Opacidade atualizada para 0 */
+}
+
+/* Aparência das opções do seletor de idiomas ao passar o mouse */
+.language-selector option:hover {
+  background-color: #f8f9fa;
+}
+
